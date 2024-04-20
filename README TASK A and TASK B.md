@@ -1,7 +1,7 @@
 # PROIECT_ABD
 
 ## TASK A
-<Get the states with a total population of over 10 million.>
+/ Get the states with a total population of over 10 million. /
 
 I used the following:
 
@@ -13,7 +13,7 @@ Short explanation of used final code:
 The above first groups documents by the "state_name" field, calculates the total population for each state, filters out states with a total population greater than 10 000 000, and at the end sorts the resulting states based on their populations - in ascending order.
 
 ## TASK B
-<Get the average city population by state.>
+/ Get the average city population by state. /
 
 I made a first evaluation of how many cities are in a state (chosen randomly), as a number:
 
@@ -30,4 +30,4 @@ db.proiect.aggregate([ { $group: { _id: {state_name: "$state_name"}, total_popul
 Short explanation of used final code:
 The above groups documents by the "state_name" field, calculates the total population and counts the number of cities for each state, then adds a new field (with the calculated average) that represents the average population per city within each state.
 
-### TASK C
+
