@@ -28,6 +28,6 @@ db.proiect.aggregate([ { $group: { _id: {state_name: "$state_name"}, total_popul
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20B/Fig2%20Task%20b%20ref%20average1%20pr%20MongoDB.jpg)
 
 Short explanation of used final code:
-The above groups documents by the "state_name" field, calculates the total population and counts the number of cities for each state, then adds a new field (with the calculated average) that represents the average population per city within each state.
+The above groups documents by the "state_name" field, calculates the total population and counts the number of cities for each state, then adds a new field (with the calculated average) that represents the average population within each state.
 
 
