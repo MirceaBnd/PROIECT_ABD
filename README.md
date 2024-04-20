@@ -9,7 +9,7 @@ db.proiect.aggregate([{$group: {_id: {state_name: "$state_name"}, state_populati
 
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20A/Fig%20Task%20a%20ref%20pr%20MongoDB.jpg)
 
-### TASK B
+## TASK B
 <Get the average city population by state.>
 
 I made a first evaluation of how many cities are in a state (chosen randomly), as a number:
@@ -25,4 +25,4 @@ db.proiect.aggregate([ { $group: { _id: {state_name: "$state_name"}, total_popul
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20B/Fig2%20Task%20b%20ref%20average1%20pr%20MongoDB.jpg)
 
 
-#### TASK C
+### TASK C
