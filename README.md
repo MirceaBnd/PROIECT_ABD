@@ -9,6 +9,9 @@ db.proiect.aggregate([{$group: {_id: {state_name: "$state_name"}, state_populati
 
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20A/Fig%20Task%20a%20ref%20pr%20MongoDB.jpg)
 
+Short explanation of used final code:
+The above first groups documents by the "state_name" field, calculates the total population for each state, filters out states with a total population greater than 10 000 000, and at the end sorts the resulting states based on their populations - in ascending order.
+
 ## TASK B
 <Get the average city population by state.>
 
@@ -24,5 +27,7 @@ db.proiect.aggregate([ { $group: { _id: {state_name: "$state_name"}, total_popul
 
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20B/Fig2%20Task%20b%20ref%20average1%20pr%20MongoDB.jpg)
 
+Short explanation of used final code:
+The above groups documents by the "state_name" field, calculates the total population and counts the number of cities for each state, then adds a new field (with the calculated average) that represents the average population per city within each state.
 
 ### TASK C
