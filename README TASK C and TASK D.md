@@ -50,6 +50,13 @@ Short description of the above code: the aggregation pipeline fetches documents 
 
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20D/Fig2%20Task%20d%20ref%20small%20city%20not%20necess%20with%200%20population%20pr%20MongoDB.jpg)
 
+Finally, the solution for this task is the following proposal code:
 
+db.proiect.aggregate([ { $group: { _id: { state_name: "$state_name", county_name: "$county_name" }, population: { $sum: "$population" } } }, { $sort: { population: -1 } }, { $group: { _id: {state_name: "$_id.state_name"}, counties: { $push: { county_name: "$_id.county_name", population: "$population" } }} }, {$project: {_id: 1, smallest_county: { $arrayElemAt: ["$counties", -1] }, largest__county: { $arrayElemAt: ["$counties", 0] } }}])
 
-Just a remark: one county has multiple cities, so it is very rare to have counties with 0 population.
+Short description of the final code:
+The code groups documents by state and county, calculates the total population for each county, sorts the counties within each state by population, and then selects the county with the smallest and largest populations within each state.
+
+![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20D/Fig3%20Task%20d%20ref%20small%20large%20county%20per%20state%20pr%20MongoDB.jpg)
+
+Just a remark: usually, one county has multiple cities, so it is very rare to have counties with 0 population.
