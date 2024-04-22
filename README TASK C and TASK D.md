@@ -20,7 +20,14 @@ The above code aggregates documents from the "proiect" collection, first filteri
 
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20C/Fig2%20Task%20c%20ref%20small%20city%20not%20necess%20with%200%20population%20pr%20MongoDB.jpg)
 
+Finally, the solution for this task is the following proposal code:
 
+db.proiect.aggregate([ { $group: { _id: { state_name: "$state_name", city: "$city" }, population: { $sum: "$population" } } }, { $sort: { population: -1 } }, { $group: { _id: {state_name: "$_id.state_name"}, cities: { $push: { city: "$_id.city", population: "$population" } }} }, {$project: {_id: 1, smallest_city: { $arrayElemAt: ["$cities", -1] }, largest__city: { $arrayElemAt: ["$cities", 0] } }}])
+
+Short explanation of the final code:
+The above code aggregates documents from the "proiect" collection, first grouping them by state and city, calculating the total population for each city, then sorting them by population, and finally, grouping them by state and extracting the smallest and largest populated cities within each state.
+
+![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20C/Fig3%20Task%20c%20ref%20small%20large%20cities%20per%20state%20pr%20MongoDB.jpg)
 
 ### TASK D
 
