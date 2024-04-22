@@ -33,4 +33,23 @@ The above code aggregates documents from the "proiect" collection, first groupin
 
 / Get the largest and the smallest counties in each state. /
 
+First, I made a test to see all cities with 0 population from all counties. I used the following:
 
+db.proiect.aggregate([{$match: { "population": 0 } }, { $group: { _id: {county: "$county_name"}, cities: { $addToSet: { city: "$city", population: "$population" } } } }, {$sort: {"_id": 1 } }, { $project: { _id: 1, state_name: 1,  cities: 1} }] )
+
+Short explanation of the code: 
+This code filters documents with a population of 0, groups them by county, creates arrays of unique cities within each county, sorts the results by county name, and then projects specific fields into the output.
+
+![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20D/Fig1%20Task%20d%20ref%20cities%20with%20population%200%20in%20county%20pr%20MongoDB.jpg)
+
+After this, I made a second test to see how the smallest cities can have more than 0 population:
+
+db.proiect.aggregate([ { $match: { county_name: "Orange" } }, { $group: { _id: "$city", Population: { $sum: "$population" }} }, { $sort: { Population: 1 } }] )
+
+Short description of the above code: the aggregation pipeline fetches documents from the "proiect" collection that belong to (randomly chosen) Orange County. Then, it groups these documents by city, calculating the total population for each city. Finally, it sorts the cities based on their population in ascending order.
+
+![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20D/Fig2%20Task%20d%20ref%20small%20city%20not%20necess%20with%200%20population%20pr%20MongoDB.jpg)
+
+
+
+Just a remark: one county has multiple cities, so it is very rare to have counties with 0 population.
