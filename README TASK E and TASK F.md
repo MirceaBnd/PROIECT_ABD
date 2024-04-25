@@ -56,6 +56,7 @@ db.proiect.aggregate([{$geoNear: { near: { type: "Point", coordinates : [-74.044
 ![image](https://github.com/MirceaBnd/PROIECT_ABD/blob/main/TASK%20F/Fig1%20task%20F%20total%20population%20betw%2050%20and%20200%20kms.jpg)
 
 Short description of the above code: 
-The above calculates the total population of documents in the "proiect" collection that are within a certain distance range from a specified geographic point.
+The above calculates the total population - from the "proiect" collection that are within a certain distance range from a specified geographic point.
+
 
 For additional details, please consult also /Useful MongoDB documentation.md/
